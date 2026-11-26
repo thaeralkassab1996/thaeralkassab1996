@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320" viewBox="0 0 500 320" role="img" aria-label="Contributions per month. Busiest month: January 2026, 1 contribution">
+<title>Contributions per month. Busiest month: January 2026, 1 contribution</title>
+<style>
+
+text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; font-variant-numeric: tabular-nums; }
+.bar { transform-box: fill-box; transform-origin: 50% 100%; animation: grow .8s cubic-bezier(.2, .7, .2, 1) backwards; }
+.val { animation: fade .4s ease-out backwards; }
+@keyframes grow { from { transform: scaleY(0); } }
+@keyframes fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .motion-only { display: none !important; }
+}
+</style>
+<text x="0" y="24" font-size="18" font-weight="600" fill="#0F1A2B">Contributions per month</text>
+<text x="0" y="46" font-size="13" fill="#5E6A7E">Last 12 months, this month so far</text>
+<path d="M0 248.5H500" stroke="#DCE3EC"/>
+<text x="21" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Dec</text>
+<path class="bar" style="animation-delay:45ms" d="M51 248V85Q51 80 56 80H70Q75 80 75 85V248Z" fill="#E0004D"/><text class="val" style="animation-delay:445ms" x="63" y="72" text-anchor="middle" font-size="12" fill="#5E6A7E">1</text><text x="63" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Jan</text>
+<text x="104" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Feb</text>
+<text x="146" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Mar</text>
+<text x="188" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Apr</text>
+<text x="229" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">May</text>
+<text x="271" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Jun</text>
+<text x="312" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Jul</text>
+<text x="354" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Aug</text>
+<text x="396" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Sep</text>
+<text x="437" y="270" text-anchor="middle" font-size="12" fill="#5E6A7E">Oct</text>
+<text x="479" y="270" text-anchor="middle" font-size="12" fill="#0F1A2B">Nov</text>
+<text x="0" y="310" font-size="13" fill="#4B5A70">Busiest month: January 2026, 1 contribution</text>
+</svg>

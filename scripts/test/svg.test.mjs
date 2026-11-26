@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { esc, textWidth, fmtNumber, fmtDate, fmtShortDate, svgDoc } from '../lib/svg.mjs';
+import { esc, textWidth, fmtNumber, fmtDate, fmtShortDate, svgDoc, plural } from '../lib/svg.mjs';
 import { THEMES } from '../lib/theme.mjs';
 
 test('esc escapes the characters that break SVG markup', () => {
@@ -11,6 +11,12 @@ test('esc escapes the characters that break SVG markup', () => {
 test('fmtNumber adds thousands separators', () => {
   assert.equal(fmtNumber(1234), '1,234');
   assert.equal(fmtNumber(0), '0');
+});
+
+test('plural matches the noun to the number', () => {
+  assert.equal(plural(1, 'contribution'), '1 contribution');
+  assert.equal(plural(0, 'day'), '0 days');
+  assert.equal(plural(1234, 'day'), '1,234 days');
 });
 
 test('fmtDate and fmtShortDate print GitHub-style dates', () => {

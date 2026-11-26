@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320" viewBox="0 0 500 320" role="img" aria-label="Languages I write: Python 70.6%, TypeScript 22.7%, SQL 4.4%, HTML 0.9%, JavaScript 0.6%, CSS 0.6%, Other 0.2%">
+<title>Languages I write: Python 70.6%, TypeScript 22.7%, SQL 4.4%, HTML 0.9%, JavaScript 0.6%, CSS 0.6%, Other 0.2%</title>
+<style>
+
+text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; font-variant-numeric: tabular-nums; }
+.seg { transform-box: fill-box; transform-origin: 0 50%; animation: grow .7s cubic-bezier(.2, .7, .2, 1) backwards; }
+.item { animation: fade .4s ease-out backwards; }
+@keyframes grow { from { transform: scaleX(0); } }
+@keyframes fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .motion-only { display: none !important; }
+}
+</style>
+<defs><clipPath id="barClip"><rect x="0" y="72" width="500" height="14" rx="7"/></clipPath></defs>
+<text x="0" y="24" font-size="18" font-weight="600" fill="#E8EDF5">Languages I write</text>
+<text x="0" y="46" font-size="13" fill="#8392A8">Share of lines I added in my commits, last 12 months</text>
+<rect x="0" y="72" width="500" height="14" rx="7" fill="#1E2A3D"/><g clip-path="url(#barClip)"><rect class="seg" style="animation-delay:0ms" x="0" y="72" width="351" height="14" fill="#3572A5"/><rect class="seg" style="animation-delay:70ms" x="353" y="72" width="111.5" height="14" fill="#3178C6"/><rect class="seg" style="animation-delay:140ms" x="466.5" y="72" width="20" height="14" fill="#E38C00"/><rect class="seg" style="animation-delay:210ms" x="488.5" y="72" width="2.5" height="14" fill="#E34C26"/><rect class="seg" style="animation-delay:280ms" x="493" y="72" width="1" height="14" fill="#F1E05A"/><rect class="seg" style="animation-delay:350ms" x="496" y="72" width="1" height="14" fill="#9B6FD6"/><rect class="seg" style="animation-delay:420ms" x="499" y="72" width="1" height="14" fill="#4A5A72"/></g>
+<g class="item" style="animation-delay:300ms"><circle cx="6" cy="119" r="6" fill="#3572A5"/><text x="20" y="124" font-size="15" fill="#E8EDF5">Python</text><text x="232" y="124" text-anchor="end" font-size="15" fill="#A3AFC1">70.6%</text></g>
+<g class="item" style="animation-delay:360ms"><circle cx="6" cy="155" r="6" fill="#3178C6"/><text x="20" y="160" font-size="15" fill="#E8EDF5">TypeScript</text><text x="232" y="160" text-anchor="end" font-size="15" fill="#A3AFC1">22.7%</text></g>
+<g class="item" style="animation-delay:420ms"><circle cx="6" cy="191" r="6" fill="#E38C00"/><text x="20" y="196" font-size="15" fill="#E8EDF5">SQL</text><text x="232" y="196" text-anchor="end" font-size="15" fill="#A3AFC1">4.4%</text></g>
+<g class="item" style="animation-delay:480ms"><circle cx="6" cy="227" r="6" fill="#E34C26"/><text x="20" y="232" font-size="15" fill="#E8EDF5">HTML</text><text x="232" y="232" text-anchor="end" font-size="15" fill="#A3AFC1">0.9%</text></g>
+<g class="item" style="animation-delay:540ms"><circle cx="270" cy="119" r="6" fill="#F1E05A"/><text x="284" y="124" font-size="15" fill="#E8EDF5">JavaScript</text><text x="496" y="124" text-anchor="end" font-size="15" fill="#A3AFC1">0.6%</text></g>
+<g class="item" style="animation-delay:600ms"><circle cx="270" cy="155" r="6" fill="#9B6FD6"/><text x="284" y="160" font-size="15" fill="#E8EDF5">CSS</text><text x="496" y="160" text-anchor="end" font-size="15" fill="#A3AFC1">0.6%</text></g>
+<g class="item" style="animation-delay:660ms"><circle cx="270" cy="191" r="6" fill="#4A5A72"/><text x="284" y="196" font-size="15" fill="#E8EDF5">Other</text><text x="496" y="196" text-anchor="end" font-size="15" fill="#A3AFC1">0.2%</text></g>
+<text x="0" y="310" font-size="13" fill="#8392A8">Updated November 2026</text>
+</svg>

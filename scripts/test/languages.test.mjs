@@ -19,6 +19,7 @@ test('languageOf ignores lockfiles, generated, vendored, data and docs files', (
     'package-lock.json', 'web/pnpm-lock.yaml', 'uv.lock', 'node_modules/x/index.js', 'web/dist/app.js',
     'web/.next/server.js', 'docs/guide.md', 'config/app.yml', 'data/rows.json', 'js/lang/nl.js',
     'static/app.min.js', 'types/env.d.ts', 'img/logo.png', 'README', 'src/api.generated.ts',
+    'packages/supabase/src/database.types.ts', 'packages/widget/stats.html',
   ]) {
     assert.equal(languageOf(path), null, path);
   }
@@ -37,10 +38,10 @@ const SAMPLE = [
   '1\t1\tapi/util.py',
 ].join('\n');
 
-test('sumNumstat adds lines added and removed per language, skipping binary and ignored files', () => {
+test('sumNumstat adds the lines added per language, skipping removals, binary and ignored files', () => {
   const totals = sumNumstat(SAMPLE);
-  assert.equal(totals.get('Python'), 18);
-  assert.equal(totals.get('TypeScript'), 4);
+  assert.equal(totals.get('Python'), 13);
+  assert.equal(totals.get('TypeScript'), 3);
   assert.equal(totals.size, 2);
 });
 
@@ -48,7 +49,7 @@ test('sumNumstat counts a commit once even when two clones contain it', () => {
   const seen = new Set();
   const totals = sumNumstat(SAMPLE, new Map(), seen);
   sumNumstat(SAMPLE, totals, seen);
-  assert.equal(totals.get('Python'), 18);
+  assert.equal(totals.get('Python'), 13);
 });
 
 test('shares sorts by size, keeps the top languages and folds the rest into Other', () => {

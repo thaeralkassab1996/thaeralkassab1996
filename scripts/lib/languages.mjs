@@ -16,6 +16,9 @@ const LOCKFILES = new Set([
   'Pipfile.lock', 'Cargo.lock', 'composer.lock', 'Gemfile.lock',
 ]);
 
+// Generated files that would otherwise count as code: Supabase types, bundle size reports.
+const GENERATED_FILES = new Set(['database.types.ts', 'stats.html']);
+
 const IGNORED_DIRS = new Set([
   'node_modules', 'dist', 'build', 'out', '.next', '.turbo', '.cache', 'vendor', 'coverage',
   '__snapshots__', '.venv', 'venv', 'site-packages', 'generated', '__generated__',
@@ -25,7 +28,7 @@ const IGNORED_DIRS = new Set([
 export function languageOf(path) {
   const parts = path.split('/');
   const name = parts[parts.length - 1];
-  if (LOCKFILES.has(name)) return null;
+  if (LOCKFILES.has(name) || GENERATED_FILES.has(name)) return null;
   if (parts.slice(0, -1).some((dir) => IGNORED_DIRS.has(dir))) return null;
   if (/(^|\/)js\/lang\//.test(path)) return null; // translation data
   if (/\.min\.[a-z0-9]+$/i.test(name) || /\.d\.ts$/i.test(name) || /\.generated\./i.test(name)) return null;
@@ -45,7 +48,8 @@ function newPath(path) {
 }
 
 /**
- * Add one repository's `git log --numstat --format=commit:%H` output to `totals`.
+ * Add the lines added in one repository's `git log --numstat --format=commit:%H` output to
+ * `totals`. Removed lines do not count: deleting an old template is not writing that language.
  * Commits already in `seen` are skipped, so a commit present in two clones counts once.
  */
 export function sumNumstat(text, totals = new Map(), seen = new Set()) {
@@ -59,10 +63,10 @@ export function sumNumstat(text, totals = new Map(), seen = new Set()) {
     }
     if (skip) continue;
     const m = /^(\d+|-)\t(\d+|-)\t(.+)$/.exec(line);
-    if (!m || m[1] === '-' || m[2] === '-') continue;
+    if (!m || m[1] === '-') continue;
     const language = languageOf(newPath(m[3]));
-    if (!language) continue;
-    totals.set(language, (totals.get(language) || 0) + Number(m[1]) + Number(m[2]));
+    if (!language || Number(m[1]) === 0) continue;
+    totals.set(language, (totals.get(language) || 0) + Number(m[1]));
   }
   return totals;
 }

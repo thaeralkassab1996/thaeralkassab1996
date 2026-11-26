@@ -23,6 +23,9 @@ export function textWidth(text, size, kind = 'sans') {
 
 export const fmtNumber = (n) => Number(n).toLocaleString('en-US');
 
+/** "1 day", "2 days", "1,234 days" */
+export const plural = (n, word) => `${fmtNumber(n)} ${word}${n === 1 ? '' : 's'}`;
+
 function parts(iso) {
   const [y, m, d] = iso.split('-').map(Number);
   return { y, month: MONTHS[m - 1], d };
