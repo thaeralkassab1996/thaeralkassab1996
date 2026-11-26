@@ -1,0 +1,40 @@
+name: Update activity cards
+
+on:
+  schedule:
+    - cron: "23 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: activity-cards
+  cancel-in-progress: false
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Run tests
+        run: node --test scripts/test/
+
+      - name: Draw cards
+        run: node scripts/build-cards.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changed cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats-*.svg assets/activity-*.svg
+          if git diff --cached --quiet; then
+            echo "Cards unchanged"
+          else
+            git commit -m "Update activity cards"
+            git push
+          fi
