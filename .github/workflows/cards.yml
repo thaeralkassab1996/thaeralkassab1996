@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Run tests
-        run: node --test scripts/test/
+        run: node --test "scripts/test/*.test.mjs"
 
       - name: Draw cards
         run: node scripts/build-cards.mjs
